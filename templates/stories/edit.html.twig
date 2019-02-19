@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Edit Story {% endblock %}
+
+{% block body %}
+	<div class="mt-3">
+		<div class="mt-3 mb-3">
+			<a href="/"><< Go Back</a>
+		</div>
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

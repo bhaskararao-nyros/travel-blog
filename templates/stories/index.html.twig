@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="mt-3">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark stories_head">
+		    <a class="navbar-brand" href="#">Latest Stories</a>
+		</nav>
+		{% if stories %}
+			{% for story in stories %}
+				<div class="card mt-3 border-default">
+				  	<div class="card-body">
+				    	<h6 class="card-title">{{ story.title }} <small class="text-muted"><i>- {{ story.createdBy }}</i></small></h6>
+					    <p class="card-text">{{ story.description }}</p>
+					    <hr>
+					    <a href="/show/{{ story.id }}" class="card-link">View</a>
+					    <a href="/edit/{{ story.id }}" class="card-link">Edit</a>
+					    <a href="/delete/{{ story.id }}" class="card-link">Delete</a>
+				  	</div>
+				</div>
+			{% endfor %}
+		{% else %}
+			<div class="card">
+			  <div class="card-body">
+			    No Stories posted yet.create your first story <a href="/new">Create Story</a>
+			  </div>
+			</div>
+		{% endif %}
+	</div>
+<style>
+.card {
+	border-radius: 0px;
+	box-shadow: 0px 0px 8px 0px #ccc;
+	border-color: #c3c5c7;
+}
+.card-title {
+	color: #212529;
+	font-weight: bold;
+	opacity: 0.8;
+}
+.card-text {
+	font-size: 14px;
+}
+h6 {
+	font-size: 18px;
+}
+.card-link {
+	color: #708294;
+}
+.remove-icon {
+	float: right;
+}
+.stories_head {
+	background-color: #636669 !important;
+}
+</style>
+{% endblock %}
